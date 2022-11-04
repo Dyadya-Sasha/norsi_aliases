@@ -2,7 +2,7 @@
 
 from __future__ import with_statement
 import re
-import os
+from time import sleep
 import subprocess
 import sys
 
@@ -68,7 +68,7 @@ def ssh_connect(name, command):
     # s.close()
     # subprocess.call('clear')
     print(f"\nConnecting to {name} {command}")
-    subprocess.run(command, shell=True)
+    subprocess.check_call(command, shell=True)
 
 
 if __name__ == "__main__":
@@ -89,7 +89,12 @@ if __name__ == "__main__":
                 sys.exit("Exit")
 
             if 1 <= inp < 25:
-                ssh_connect(names[inp - 1], cmd[inp - 1])
+                try:
+                    ssh_connect(names[inp - 1], cmd[inp - 1])
+                except subprocess.CalledProcessError as e:
+                    print(e.output)
+                    sleep(3)
+                    # break
             else:
                 print("Your choice is out range")
         except KeyboardInterrupt:
