@@ -21,4 +21,4 @@ alias VOICE_URAL="                    ssh root@172.23.1.231 -p 3594  -t ssh 10.9
 alias SORMGW-GPRS-URAL="              ssh root@172.23.1.231 -p 3599"                                              # [eqdjqyt
 alias T045_TSMCORE="                  ssh root@192.168.100.55 -p 3691"                                            # [eqdjqyt
 alias TSM-CORE01.PTRS.COMBINED="      ssh root@192.168.100.55 -p 3691 -t ssh mgr@192.100.101.39"                  # [eqdjqyt
-alias TEST-VM="                       ssh 192.168.122.248 -p 22"                                                  # qwedsa
+alias TEST-VM="                       ssh root@192.168.122.248"                                                   # qwedsa
