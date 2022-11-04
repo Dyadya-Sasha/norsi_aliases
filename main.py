@@ -5,6 +5,8 @@ import re
 from time import sleep
 import subprocess
 import sys
+from pathlib import Path
+import os
 
 names = []
 cmd = []
@@ -35,6 +37,7 @@ def finder(pat, text):
 
 
 def parser():
+    os.chdir(sys.path[0])
     with open('norsi_aliases', 'r') as f:
         test = f.readlines()
         i = 0
