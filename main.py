@@ -12,6 +12,8 @@ fin_dict = {}
 pattern_name = r'\b[A-Z].*(?==)'
 pattern_command = r'\bssh\s.*(?=\")'
 global_iterator = 0
+pattern_ip = r'[\d{}]{,3}(?:[.][\d{}]{,3}){3}'
+pattern_port = r'\d{4}'
 
 
 class RGB:
