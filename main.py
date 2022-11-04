@@ -45,9 +45,9 @@ def parser():
     f.close()
 
 
-def print_list(listik):
-    for i in range(len(listik)):
-        print(listik[i])
+# def print_list(listik):
+#     for i in range(len(listik)):
+#         print(listik[i])
 
 
 def ssh_connect(name, command):
@@ -68,7 +68,11 @@ def ssh_connect(name, command):
     # s.close()
     # subprocess.call('clear')
     print(f"\nConnecting to {name} {command}")
-    subprocess.check_call(command, shell=True)
+    try:
+        subprocess.check_call(command, shell=True)
+    except subprocess.CalledProcessError as e:
+        print(e.output)
+        sleep(3)
 
 
 if __name__ == "__main__":
@@ -89,13 +93,9 @@ if __name__ == "__main__":
                 sys.exit("Exit")
 
             if 1 <= inp < 25:
-                try:
-                    ssh_connect(names[inp - 1], cmd[inp - 1])
-                except subprocess.CalledProcessError as e:
-                    print(e.output)
-                    sleep(3)
-                    # break
+                ssh_connect(names[inp - 1], cmd[inp - 1])
             else:
                 print("Your choice is out range")
+                sleep(1)
         except KeyboardInterrupt:
             print("\nInterrupted from keyboard")
