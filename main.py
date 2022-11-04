@@ -15,7 +15,6 @@ global_iterator = 0
 pattern_ip = r'[\d{}]{,3}(?:[.][\d{}]{,3}){3}'
 pattern_port = r'\d{4}'
 
-testes
 
 class RGB:
     RED = (255, 0, 0)
