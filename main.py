@@ -4,7 +4,7 @@ from __future__ import with_statement
 import re
 import os
 import subprocess
-
+import paramiko
 
 names = []
 cmd = []
@@ -50,22 +50,44 @@ def print_list(listik):
         print(listik[i])
 
 
+def ssh_connect(command):
+    # hostname = "192.168.122.248"
+    # username = "root"
+    # password = "qwedsa"
+    # s = paramiko.SSHClient()
+    # s.set_missing_host_key_policy(paramiko.AutoAddPolicy)
+    # s.connect(hostname="192.168.122.248", username="root", password="qwedsa")
+    # while True:
+    #     try:
+    #         cmd = input("root>")
+    #         if cmd == "exit": break
+    #         stdin, stdout, stderr = s.exec_command(cmd)
+    #         print(stdout.read().decode())
+    #     except KeyboardInterrupt:
+    #         break
+    # s.close()
+    s = subprocess.run("ssh root@192.168.103.250 -p 3593", shell=True)
+
+
+
+
 if __name__ == "__main__":
     os.system('clear')
     parser()
-#    print_list(names)
-#    print_list(cmd)
+    #    print_list(names)
+    #    print_list(cmd)
     global_iterator = 1
     for x in range(len(names)):
         print("{}) {}".format(global_iterator, color_text(names[x], RGB.RED)))
         print("         {}  ".format(color_text(cmd[x], RGB.GREEN)))
         global_iterator += 1
-    inp = int(input("\nChoose your destiny (q for quit):  "))
-    if 1 <= inp < 24:
-        print(f"you have chosen {inp}")
-        print(names[inp - 1])
-        print(cmd[inp - 1])
-    else:
-        print("ты идёшь в хуй")
+    # inp = int(input("\nChoose your destiny (q for quit):  "))
+    # if 1 <= inp < 25:
+    #    print(f"you have chosen {inp}")
+    #     print(names[inp - 1])
+    #     print(cmd[inp - 1])
+    # else:
+    #     print("ты идёшь в хуй")
+    #     sys.exit("Всё, пиздец")
 
-
+    ssh_connect(cmd[23])
