@@ -1,11 +1,8 @@
-# This is a sample Python script.
 
-from __future__ import with_statement
 import re
 from time import sleep
 import subprocess
 import sys
-from pathlib import Path
 import os
 
 names = []
