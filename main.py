@@ -1,6 +1,5 @@
 # This is a sample Python script.
 
-from __future__ import with_statement
 import re
 from time import sleep
 import subprocess
@@ -85,12 +84,12 @@ if __name__ == "__main__":
             #    print_list(names)
             #    print_list(cmd)
             global_iterator = 1
-            for x in range(len(names)):
-                print("{}) {}".format(global_iterator, color_text(names[x], RGB.RED)))
+            for x, item in enumerate(names):
+                print("{}) {}".format(x, color_text(names[x], RGB.RED)))
                 print("    {}".format(color_text(cmd[x], RGB.GREEN)))
                 global_iterator += 1
             try:
-                inp = int(input("\nChoose your way, passer-by (any other key for exit):  "))
+                inp = int(input("\nChoose your destiny (any other key to exit):  "))
             except ValueError:
                 sys.exit("Exit")
 
