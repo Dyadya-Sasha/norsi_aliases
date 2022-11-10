@@ -1,4 +1,5 @@
-# This is a sample Python script.
+
+
 import os
 import re
 from time import sleep
@@ -7,12 +8,13 @@ import sys
 
 names = []
 cmd = []
-fin_dict = {}
+ip_list = []
+port_list = []
 pattern_name = r'\b[A-Z].*(?==)'
 pattern_command = r'\bssh\s.*(?=\")'
-global_iterator = 0
-pattern_ip = r'[\d{}]{,3}(?:[.][\d{}]{,3}){3}'
+pattern_ip = r'[\d]{,3}(?:[.][\d]{,3}){3}'
 pattern_port = r'\d{4}'
+uni_status = "\u25C9"
 
 
 class RGB:
@@ -42,13 +44,10 @@ def parser():
             #            print(color_text(finder(pattern_command, line), RGB.GREEN))
             names.append(finder(pattern_name, line))
             cmd.append(finder(pattern_command, line))
+            ip_list.append(finder(pattern_ip, line))
+            port_list.append(finder(pattern_port, line))
             i = i + 1
     f.close()
-
-
-# def print_list(listik):
-#     for i in range(len(listik)):
-#         print(listik[i])
 
 
 def ssh_connect(name, command):
@@ -73,7 +72,7 @@ def ssh_connect(name, command):
         subprocess.check_call(command, shell=True)
     except subprocess.CalledProcessError as e:
         print(e.output)
-        sleep(3)
+        sleep(2)
 
 
 if __name__ == "__main__":
@@ -85,10 +84,15 @@ if __name__ == "__main__":
             #    print_list(names)
             #    print_list(cmd)
             for x, item in enumerate(names):
-                print(f"{x + 1:<2}) {color_text(names[x], RGB.RED):<10}")
+                print(f"{x + 1:<2}) {color_text(names[x], RGB.RED):<10}  {color_text(uni_status, RGB.GREEN)}")
                 print(f"      {color_text(cmd[x], RGB.GREEN)}")
+                # print(f"address: {ip_list[x]}    port: {port_list[x]}")
             try:
-                inp = int(input("\nChoose your destiny (any other key to exit):  "))
+                inp = input("\nChoose your destiny (any other key to exit):  ")
+                if inp.isdigit():
+                    inp = int(inp)
+                else:
+                    sys.exit('Exit')
             except ValueError:
                 sys.exit("Exit")
 
