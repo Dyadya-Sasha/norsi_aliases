@@ -85,8 +85,8 @@ if __name__ == "__main__":
             #    print_list(cmd)
             global_iterator = 1
             for x, item in enumerate(names):
-                print("{}) {}".format(x, color_text(names[x], RGB.RED)))
-                print("    {}".format(color_text(cmd[x], RGB.GREEN)))
+                print(f"{x +1}) {color_text(names[x], RGB.RED)}")
+                print(f"    {format(color_text(cmd[x], RGB.GREEN))}")
                 global_iterator += 1
             try:
                 inp = int(input("\nChoose your destiny (any other key to exit):  "))
