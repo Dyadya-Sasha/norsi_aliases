@@ -22,3 +22,4 @@ alias SORMGW-GPRS-URAL="              ssh root@192.168.103.250 -p 3599"         
 alias T045_TSMCORE="                  ssh root@192.168.103.250 -p 3691"                                                       # [eqdjqyt
 alias TSM-CORE01.PTRS.COMBINED="      ssh root@192.168.103.250 -p 3691  -t ssh mgr@192.100.101.39"                            # [eqdjqyt
 alias ROSTOV_86{573}="                ssh root@213.27.36.198   -p 3578"                                                       # [eqgbplfl;buehlf
+alias
