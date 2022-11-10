@@ -1,10 +1,9 @@
-
-
 import os
 import re
 from time import sleep
 import subprocess
 import sys
+import socket
 
 names = []
 cmd = []
@@ -51,28 +50,25 @@ def parser():
 
 
 def ssh_connect(name, command):
-    # hostname = "192.168.122.248"
-    # username = "root"
-    # password = "qwedsa"
-    # s = paramiko.SSHClient()
-    # s.set_missing_host_key_policy(paramiko.AutoAddPolicy)
-    # s.connect(hostname="192.168.122.248", username="root", password="qwedsa")
-    # while True:
-    #     try:
-    #         cmd = input("root>")
-    #         if cmd == "exit": break
-    #         stdin, stdout, stderr = s.exec_command(cmd)
-    #         print(stdout.read().decode())
-    #     except KeyboardInterrupt:
-    #         break
-    # s.close()
-    # subprocess.call('clear')
     print(f"\nConnecting to {name} {command}")
     try:
         subprocess.check_call(command, shell=True)
     except subprocess.CalledProcessError as e:
         print(e.output)
         sleep(2)
+
+
+def port_test():
+    a_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+    location = ("192.168.103.250", 3593)
+    result_of_check = a_socket.connect_ex(location)
+
+    if result_of_check == 0:
+        print("Port is open")
+    else:
+        print("Port is not open")
+    a_socket.close()
 
 
 if __name__ == "__main__":
