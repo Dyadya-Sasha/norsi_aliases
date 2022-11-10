@@ -75,7 +75,7 @@ def ssh_connect(name, command):
         print(e.output)
         sleep(3)
 
-
+dsfsdf
 if __name__ == "__main__":
     parser()
     while True:
