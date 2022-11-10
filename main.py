@@ -1,5 +1,5 @@
 # This is a sample Python script.
-
+import os
 import re
 from time import sleep
 import subprocess
@@ -75,8 +75,9 @@ def ssh_connect(name, command):
         print(e.output)
         sleep(3)
 
-dsfsdf
+
 if __name__ == "__main__":
+    os.chdir(sys.path[0])
     parser()
     while True:
         try:
