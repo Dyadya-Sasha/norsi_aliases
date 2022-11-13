@@ -27,9 +27,13 @@ def color_text(text, rgb):
 
 
 def finder(pat, text):
-    match_ = re.search(pat, str(text))
-    str_match = format(match_.group(0))
-    return str_match
+    try:
+        match_ = re.search(pat, str(text))
+        str_match = format(match_.group(0))
+        return str_match
+    except AttributeError:
+        print("Something is wrong with reference file")
+        sys.exit()
 
 
 def parser():
@@ -84,9 +88,11 @@ def port_test(address, port):
 
 if __name__ == "__main__":
     os.chdir(sys.path[0])
-    parser()
+    counter = 0
     while True:
         x = 0
+        counter += 1
+        parser()
         try:
             subprocess.call('clear')
             for key, val in united_dict.items():
@@ -104,11 +110,13 @@ if __name__ == "__main__":
             except ValueError:
                 sys.exit("Exit")
 
-            if 1 <= inp < 25:
+            if 1 <= inp <= len(united_dict):
                 ssh_connect(united_dict.get((inp - 1))[0], {united_dict.get((inp - 1))[1]})
                 # sleep(10)
             else:
                 print("Your choice is out range")
                 sleep(1)
+            if counter == 200:
+                parser()
         except KeyboardInterrupt:
             print("\nInterrupted from keyboard")
