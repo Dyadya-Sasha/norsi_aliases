@@ -29,8 +29,8 @@ def color_text(text, rgb):
 
 
 def finder(pat, text):
-    match = re.search(pat, str(text))
-    str_match = format(match.group(0))
+    match_ = re.search(pat, str(text))
+    str_match = format(match_.group(0))
     return str_match
 
 
