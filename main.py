@@ -75,15 +75,22 @@ def ssh_connect(name, command):
 
 def port_test(address, port):
     a_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    result_of_check = a_socket.connect_ex((address, int(port)))
-    if result_of_check == 0:
-        # print("Port is open")
-        a_socket.close()
-        return RGB.GREEN
-    else:
-        # print("Port is not open")
-        a_socket.close()
-        return RGB.RED
+    a_socket.settimeout(0.2)
+    try:
+        result_of_check = a_socket.connect_ex((address, int(port)))
+        if result_of_check == 0:
+            # print("Port is open")
+            a_socket.close()
+            # print(f"{address}:{port} is online")
+            return RGB.GREEN
+        else:
+            # print("Port is not open")
+            a_socket.close()
+            # print(f"{address}:{port} is offline")
+            return RGB.RED
+    except socket.error:
+        print(f"Host {address} on port {port} is not reachable")
+        sleep(5)
 
 
 if __name__ == "__main__":

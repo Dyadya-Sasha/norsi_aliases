@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="61131a23-3e24-4278-bb12-dbea5c733fea" name="Changes" comment="Online availability">
+    <list default="true" id="61131a23-3e24-4278-bb12-dbea5c733fea" name="Changes" comment="Improved enumerating">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/norsi_aliases" beforeDir="false" afterPath="$PROJECT_DIR$/norsi_aliases" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,84 +134,7 @@
       <option name="project" value="LOCAL" />
       <updated>1668047431617</updated>
     </task>
-    <task id="LOCAL-00010" summary="Enumerator added">
-      <created>1668064032206</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1668064032206</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Enumerator added">
-      <created>1668064081210</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1668064081210</updated>
-    </task>
-    <task id="LOCAL-00012" summary="Enumerator added">
-      <created>1668067210899</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1668067210899</updated>
-    </task>
-    <task id="LOCAL-00013" summary="Enumerator added">
-      <created>1668076722506</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1668076722506</updated>
-    </task>
-    <task id="LOCAL-00014" summary="Status checker _ THE BEGINNING">
-      <created>1668083130006</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1668083130006</updated>
-    </task>
-    <task id="LOCAL-00015" summary="Added function to check if port open">
-      <created>1668101318664</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1668101318664</updated>
-    </task>
-    <task id="LOCAL-00016" summary="List of hosts">
-      <created>1668101496184</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1668101496184</updated>
-    </task>
-    <task id="LOCAL-00017" summary="updated">
-      <created>1668329117519</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1668329117519</updated>
-    </task>
-    <task id="LOCAL-00018" summary="updated">
-      <created>1668338891037</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1668338891037</updated>
-    </task>
-    <task id="LOCAL-00019" summary="updated">
-      <created>1668338907244</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1668338907244</updated>
-    </task>
-    <task id="LOCAL-00020" summary="Online availability">
-      <created>1668339149151</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1668339149151</updated>
-    </task>
-    <option name="localTasksCounter" value="21" />
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -258,12 +180,6 @@
     <MESSAGE value="Not hiding menu" />
     <MESSAGE value="added pattern for IP and port" />
     <MESSAGE value="Improved enumerating" />
-    <MESSAGE value="Enumerator added" />
-    <MESSAGE value="Status checker _ THE BEGINNING" />
-    <MESSAGE value="Added function to check if port open" />
-    <MESSAGE value="List of hosts" />
-    <MESSAGE value="updated" />
-    <MESSAGE value="Online availability" />
-    <option name="LAST_COMMIT_MESSAGE" value="Online availability" />
+    <option name="LAST_COMMIT_MESSAGE" value="Improved enumerating" />
   </component>
 </project>
