@@ -44,8 +44,6 @@ def parser():
         test = f.readlines()
         i = 0
         for line in test:
-            #            print(color_text(finder(pattern_name, line), RGB.RED))
-            #            print(color_text(finder(pattern_command, line), RGB.GREEN))
             order.append(i)
             names.append(finder(pattern_name, line))
             cmd.append(finder(pattern_command, line))
@@ -59,6 +57,7 @@ def parser():
     cmd.clear()
     ip_list.clear()
     port_list.clear()
+    order.clear()
 
 
 def ssh_connect(name, command):
@@ -72,10 +71,7 @@ def ssh_connect(name, command):
 
 def port_test(address, port):
     a_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-
-    location = (address, port)
     result_of_check = a_socket.connect_ex((address, int(port)))
-
     if result_of_check == 0:
         # print("Port is open")
         a_socket.close()
@@ -97,12 +93,8 @@ if __name__ == "__main__":
                 x += 1
                 print(f"{x :<2}) {color_text(val[0], RGB.RED)} {color_text(unicode_status, val[4])}")
                 print(f"      {color_text(val[1], RGB.GREEN)}")
-            # for x, item in enumerate(names):
-            #     print(f"{x + 1:<2}) {color_text(names[x], RGB.RED):<10}  {color_text(unicode_status, RGB.GREEN)}")
-            #     print(f"      {color_text(cmd[x], RGB.GREEN)}")
-            #     print(f"address: {ip_list[x]}    port: {port_list[x]}")
             # for key, val in united_dict.items():
-            #     print(f"{key:}\n {val}")
+            # print(f"{key:}\n {val}")
             try:
                 inp = input("\nChoose your destiny (any other key to exit):  ")
                 if inp.isdigit():
