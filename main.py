@@ -98,7 +98,6 @@ if __name__ == "__main__":
     counter = 0
     while True:
         x = 0
-        counter += 1
         parser()
         try:
             subprocess.call('clear')
@@ -123,7 +122,5 @@ if __name__ == "__main__":
             else:
                 print("Your choice is out range")
                 sleep(1)
-            if counter == 200:
-                parser()
         except KeyboardInterrupt:
             print("\nInterrupted from keyboard")
