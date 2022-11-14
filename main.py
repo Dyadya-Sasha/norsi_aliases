@@ -5,7 +5,6 @@ import subprocess
 import sys
 import socket
 
-
 pattern_name = r'\b[A-Z].*(?==)'
 pattern_command = r'\bssh\s.*(?=\")'
 pattern_ip = r'[\d]{,3}(?:[.][\d]{,3}){3}'
@@ -89,8 +88,7 @@ def port_test(address, port):
             # print(f"{address}:{port} is offline")
             return RGB.RED
     except socket.error:
-        print(f"Host {address} on port {port} is not reachable")
-        sleep(5)
+        return
 
 
 if __name__ == "__main__":
