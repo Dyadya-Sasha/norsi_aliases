@@ -121,4 +121,4 @@ if __name__ == "__main__":
                 print("Your choice is out range")
                 sleep(1)
         except KeyboardInterrupt:
-            print("\nInterrupted from keyboard")
+            sys.exit("\nInterrupted from keyboard")
