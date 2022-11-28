@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="61131a23-3e24-4278-bb12-dbea5c733fea" name="Changes" comment="ignore workspace">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-    </list>
+    <list default="true" id="61131a23-3e24-4278-bb12-dbea5c733fea" name="Changes" comment="No interruption on Ctrl+C" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -253,7 +250,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669120392578</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="No interruption on Ctrl+C">
+      <created>1669561421849</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1669561421850</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -307,6 +311,7 @@
     <MESSAGE value="Online availability" />
     <MESSAGE value="small update" />
     <MESSAGE value="ignore workspace" />
-    <option name="LAST_COMMIT_MESSAGE" value="ignore workspace" />
+    <MESSAGE value="No interruption on Ctrl+C" />
+    <option name="LAST_COMMIT_MESSAGE" value="No interruption on Ctrl+C" />
   </component>
 </project>
