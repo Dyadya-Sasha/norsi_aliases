@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="61131a23-3e24-4278-bb12-dbea5c733fea" name="Changes" comment="No interruption on Ctrl+C" />
+    <list default="true" id="61131a23-3e24-4278-bb12-dbea5c733fea" name="Changes" comment="Changed status marker position" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -257,7 +257,28 @@
       <option name="project" value="LOCAL" />
       <updated>1669561421850</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Changed status marker position">
+      <created>1669632458246</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1669632458246</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Changed status marker position">
+      <created>1669632487421</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1669632487421</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Changed status marker position">
+      <created>1669632636898</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1669632636898</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -312,6 +333,7 @@
     <MESSAGE value="small update" />
     <MESSAGE value="ignore workspace" />
     <MESSAGE value="No interruption on Ctrl+C" />
-    <option name="LAST_COMMIT_MESSAGE" value="No interruption on Ctrl+C" />
+    <MESSAGE value="Changed status marker position" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed status marker position" />
   </component>
 </project>
