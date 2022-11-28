@@ -101,7 +101,7 @@ if __name__ == "__main__":
             subprocess.call('clear')
             for key, val in united_dict.items():
                 x += 1
-                print(f"{x :<2}) {color_text(val[0], RGB.RED)} {color_text(unicode_status, val[4])}")
+                print(f"{x :<2}) {color_text(unicode_status, val[4])} {color_text(val[0], RGB.RED)}")
                 print(f"      {color_text(val[1], RGB.GREEN)}")
             # for key, val in united_dict.items():
             # print(f"{key:}\n {val}")
