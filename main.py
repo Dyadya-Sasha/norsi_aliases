@@ -69,7 +69,7 @@ def ssh_connect(name, command):
         subprocess.check_call(command, shell=True)
     except subprocess.CalledProcessError as e:
         print(e.output)
-        sleep(2)
+        sleep(0.8)
 
 
 def port_test(address, port):
