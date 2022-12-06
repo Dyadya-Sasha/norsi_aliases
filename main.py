@@ -47,13 +47,16 @@ def parser():
         test = f.readlines()
         i = 0
         for line in test:
-            order.append(i)
-            names.append(finder(pattern_name, line))
-            cmd.append(finder(pattern_command, line))
-            ip_list.append(finder(pattern_ip, line))
-            port_list.append(finder(pattern_port, line))
-            port_avail.append(port_test(finder(pattern_ip, line), finder(pattern_port, line)))
-            i = i + 1
+            if line == "\n":
+                continue
+            else:
+                order.append(i)
+                names.append(finder(pattern_name, line))
+                cmd.append(finder(pattern_command, line))
+                ip_list.append(finder(pattern_ip, line))
+                port_list.append(finder(pattern_port, line))
+                port_avail.append(port_test(finder(pattern_ip, line), finder(pattern_port, line)))
+                i = i + 1
     f.close()
     united_dict = {z[0]: list(z[1:]) for z in zip(order, names, cmd, ip_list, port_list, port_avail)}
     names.clear()
