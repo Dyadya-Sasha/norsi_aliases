@@ -4,6 +4,7 @@ from time import sleep
 import subprocess
 import sys
 import socket
+import argparse
 
 pattern_name = r'\b[A-Z].*(?==)'
 pattern_command = r'\bssh\s.*(?=\")'
@@ -95,6 +96,16 @@ def port_test(address, port):
 
 
 if __name__ == "__main__":
+    arg_parser = argparse.ArgumentParser(description="You can use this script in 2 ways - either direct SSH connection or grab information about nodes."
+                                                     "To grab info about nodes, you have to specify -t option")
+    arg_parser.add_argument("-t",
+                            type=str,
+                            help="Grab info about nodes")
+    option_keys = arg_parser.parse_args()
+    print(option_keys.t)
+    if option_keys.t == "-t":
+        sys.exit("-t option is enabled")
+
     os.chdir(sys.path[0])
     counter = 0
     while True:
