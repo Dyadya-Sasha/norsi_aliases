@@ -98,11 +98,10 @@ def port_test(address, port):
 if __name__ == "__main__":
     arg_parser = argparse.ArgumentParser(
         description="You can use this script in 2 ways - either direct SSH connection or to grab information about nodes."
-                    "To grab info about nodes, you have to specify -t option")
+                    "To grab info about nodes, you have to specify -t option. <prog_name -t>")
     arg_parser.add_argument('-t', action="store_true",
                             help="Grab info about nodes")
     option_keys = arg_parser.parse_args()
-    # print(option_keys.t)
     if option_keys.t:
         sys.exit("-t option is enabled")
 
