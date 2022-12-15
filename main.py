@@ -96,14 +96,14 @@ def port_test(address, port):
 
 
 if __name__ == "__main__":
-    arg_parser = argparse.ArgumentParser(description="You can use this script in 2 ways - either direct SSH connection or grab information about nodes."
-                                                     "To grab info about nodes, you have to specify -t option")
-    arg_parser.add_argument("-t",
-                            type=str,
+    arg_parser = argparse.ArgumentParser(
+        description="You can use this script in 2 ways - either direct SSH connection or to grab information about nodes."
+                    "To grab info about nodes, you have to specify -t option")
+    arg_parser.add_argument('-t', action="store_true",
                             help="Grab info about nodes")
     option_keys = arg_parser.parse_args()
-    print(option_keys.t)
-    if option_keys.t == "-t":
+    # print(option_keys.t)
+    if option_keys.t:
         sys.exit("-t option is enabled")
 
     os.chdir(sys.path[0])
