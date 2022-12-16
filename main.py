@@ -95,11 +95,9 @@ def ssh_connect(choice):
             for line in iter(stdout.readline, ""):
                 print(line, end="")
             sleep(3)
-
-            # subprocess.call(united_dict[choice][1], shell=True)
         except paramiko.ssh_exception.AuthenticationException as e:
+            print(e)
             sleep(2)
-            sys.exit(e)
     else:
         try:
             subprocess.call(united_dict[choice][1], shell=True)
@@ -127,9 +125,22 @@ def port_test(address, port):
         return
 
 
+def decorator(func):
+    def wrapper():
+        if node_option:
+            subprocess.call('clear')
+            print(color_text("INFO ABOUT NODES\n", RGB.RED))
+            return func()
+        else:
+            subprocess.call('clear')
+            print(color_text("DIRECT SSH CONNECTION\n", RGB.RED))
+            return func()
+    return wrapper
+
+
+@decorator
 def print_list():
-    subprocess.call('clear')
-    x = 0
+    x = 1
     for key, val in united_dict.items():
         print(f"{x :<2}) {color_text(unicode_status, val[4])} {color_text(val[0], RGB.RED)}")
         print(f"      {color_text(val[1], RGB.GREEN)}")
@@ -141,7 +152,6 @@ def print_list():
 if __name__ == "__main__":
     opt_parser()
     os.chdir(sys.path[0])
-    counter = 0
     while True:
         parser()
         try:
