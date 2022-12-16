@@ -85,7 +85,21 @@ def parser():
 def ssh_connect(choice):
     print(f"\nConnecting to {color_text(united_dict[choice][0:2], RGB.YELLOW)}")
     if node_option:
-        subprocess.call(united_dict[choice][1], shell=True)
+        try:
+            print(united_dict[choice][2], united_dict[choice][3])
+            client = paramiko.SSHClient()
+            client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+            client.connect(united_dict[choice][2], port=united_dict[choice][3], username="root", password="[eqdjqyt")
+            # client.connect("192.168.122.80", port=22, username="user", password="12345")
+            stdin, stdout, stderr = client.exec_command('ls -l')
+            for line in iter(stdout.readline, ""):
+                print(line, end="")
+            sleep(3)
+
+            # subprocess.call(united_dict[choice][1], shell=True)
+        except paramiko.ssh_exception.AuthenticationException as e:
+            sleep(2)
+            sys.exit(e)
     else:
         try:
             subprocess.call(united_dict[choice][1], shell=True)
@@ -113,21 +127,25 @@ def port_test(address, port):
         return
 
 
+def print_list():
+    subprocess.call('clear')
+    x = 0
+    for key, val in united_dict.items():
+        print(f"{x :<2}) {color_text(unicode_status, val[4])} {color_text(val[0], RGB.RED)}")
+        print(f"      {color_text(val[1], RGB.GREEN)}")
+        x += 1
+    # for key, val in united_dict.items():
+    #     print(f"{key:}\n {val}")
+
+
 if __name__ == "__main__":
     opt_parser()
     os.chdir(sys.path[0])
     counter = 0
     while True:
-        x = 0
         parser()
         try:
-            subprocess.call('clear')
-            for key, val in united_dict.items():
-                x += 1
-                print(f"{x :<2}) {color_text(unicode_status, val[4])} {color_text(val[0], RGB.RED)}")
-                print(f"      {color_text(val[1], RGB.GREEN)}")
-            # for key, val in united_dict.items():
-            #     print(f"{key:}\n {val}")
+            print_list()
             try:
                 inp = input("\nChoose your destiny (any other key to exit):  ")
                 if inp.isdigit():
