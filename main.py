@@ -5,6 +5,7 @@ import subprocess
 import sys
 import socket
 import argparse
+import paramiko
 
 pattern_name = r'\b[A-Z].*(?==)'
 pattern_command = r'\bssh\s.*(?=\")'
@@ -12,6 +13,7 @@ pattern_ip = r'[\d]{,3}(?:[.][\d]{,3}){3}'
 pattern_port = r'\d{4}'
 unicode_status = "\u25C9"
 united_dict = {}
+node_option = False
 
 
 class RGB:
@@ -24,6 +26,19 @@ class RGB:
 def color_text(text, rgb):
     r, g, b = rgb
     return f"\033[38;2;{r};{g};{b}m{text}\033[0m"
+
+
+def opt_parser():
+    arg_parser = argparse.ArgumentParser(
+        description="You can use this script in 2 ways - either direct SSH connection or to grab information about nodes."
+                    "To grab info about nodes, you have to specify -t option. <prog_name -t>")
+    arg_parser.add_argument('-t', action="store_true",
+                            help="Grab info about nodes")
+    option_keys = arg_parser.parse_args()
+    if option_keys.t:
+        global node_option
+        node_option = True
+        # sys.exit("-t option is enabled")
 
 
 def finder(pat, text):
@@ -67,13 +82,16 @@ def parser():
     order.clear()
 
 
-def ssh_connect(name, command):
-    print(f"\nConnecting to {name} {command}")
-    try:
-        subprocess.check_call(command, shell=True)
-    except subprocess.CalledProcessError as e:
-        print(e.output)
-        sleep(0.8)
+def ssh_connect(choice):
+    print(f"\nConnecting to {color_text(united_dict[choice][0:2], RGB.YELLOW)}")
+    if node_option:
+        subprocess.call(united_dict[choice][1], shell=True)
+    else:
+        try:
+            subprocess.call(united_dict[choice][1], shell=True)
+        except subprocess.CalledProcessError as e:
+            print(e.output)
+            sleep(0.8)
 
 
 def port_test(address, port):
@@ -96,15 +114,7 @@ def port_test(address, port):
 
 
 if __name__ == "__main__":
-    arg_parser = argparse.ArgumentParser(
-        description="You can use this script in 2 ways - either direct SSH connection or to grab information about nodes."
-                    "To grab info about nodes, you have to specify -t option. <prog_name -t>")
-    arg_parser.add_argument('-t', action="store_true",
-                            help="Grab info about nodes")
-    option_keys = arg_parser.parse_args()
-    if option_keys.t:
-        sys.exit("-t option is enabled")
-
+    opt_parser()
     os.chdir(sys.path[0])
     counter = 0
     while True:
@@ -117,7 +127,7 @@ if __name__ == "__main__":
                 print(f"{x :<2}) {color_text(unicode_status, val[4])} {color_text(val[0], RGB.RED)}")
                 print(f"      {color_text(val[1], RGB.GREEN)}")
             # for key, val in united_dict.items():
-            # print(f"{key:}\n {val}")
+            #     print(f"{key:}\n {val}")
             try:
                 inp = input("\nChoose your destiny (any other key to exit):  ")
                 if inp.isdigit():
@@ -128,7 +138,8 @@ if __name__ == "__main__":
                 sys.exit("Exit")
 
             if 1 <= inp <= len(united_dict):
-                ssh_connect(united_dict.get((inp - 1))[0], {united_dict.get((inp - 1))[1]})
+                # ssh_connect(united_dict.get((inp - 1))[0], {united_dict.get((inp - 1))[1]}, {united_dict.get((inp - 1))[2]}, {united_dict.get((inp - 1))[3]})
+                ssh_connect(inp - 1)
                 # sleep(10)
             else:
                 print("Your choice is out range")
