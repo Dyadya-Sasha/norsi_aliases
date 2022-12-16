@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="61131a23-3e24-4278-bb12-dbea5c733fea" name="Changes" comment="Changed status marker position" />
+    <list default="true" id="61131a23-3e24-4278-bb12-dbea5c733fea" name="Changes" comment="&quot;-t&quot; option logic">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -278,7 +281,49 @@
       <option name="project" value="LOCAL" />
       <updated>1669632636898</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Gitignore">
+      <created>1669632661769</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1669632661769</updated>
+    </task>
+    <task id="LOCAL-00032" summary="decreased wait time in case of error">
+      <created>1669989668550</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1669989668550</updated>
+    </task>
+    <task id="LOCAL-00033" summary="remove empty lines error">
+      <created>1670343201761</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1670343201761</updated>
+    </task>
+    <task id="LOCAL-00034" summary="argparse">
+      <created>1671040802058</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1671040802058</updated>
+    </task>
+    <task id="LOCAL-00035" summary="argparse + &quot;-t&quot; option logic">
+      <created>1671191710673</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1671191710673</updated>
+    </task>
+    <task id="LOCAL-00036" summary="&quot;-t&quot; option logic">
+      <created>1671210040216</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1671210040216</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -334,6 +379,23 @@
     <MESSAGE value="ignore workspace" />
     <MESSAGE value="No interruption on Ctrl+C" />
     <MESSAGE value="Changed status marker position" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed status marker position" />
+    <MESSAGE value="Gitignore" />
+    <MESSAGE value="decreased wait time in case of error" />
+    <MESSAGE value="remove empty lines error" />
+    <MESSAGE value="argparse" />
+    <MESSAGE value="argparse + &quot;-t&quot; option logic" />
+    <MESSAGE value="&quot;-t&quot; option logic" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;-t&quot; option logic" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
