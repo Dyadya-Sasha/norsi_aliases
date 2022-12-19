@@ -6,6 +6,7 @@ import sys
 import socket
 import argparse
 import paramiko
+import json
 
 pattern_name = r'\b[A-Z].*(?==)'
 pattern_command = r'\bssh\s.*(?=\")'
