@@ -75,7 +75,7 @@ def parser():
             counter += 1
 
 
-def ssh_connect(choice):
+def ssh_connect(choice, segment=0, complexity=False):
     print(f"\nConnecting to {color_text(united_dict[choice][0:2], RGB.YELLOW)}")
     if node_option:
         try:
@@ -84,7 +84,7 @@ def ssh_connect(choice):
             client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
             client.connect(united_dict[choice][2], port=united_dict[choice][3], username="root", password="[eqdjqyt")
             # client.connect("192.168.122.80", port=22, username="user", password="12345")
-            stdin, stdout, stderr = client.exec_command('ls -l')
+            stdin, stdout, stderr = client.exec_command('hostname -f')
             for line in iter(stdout.readline, ""):
                 print(line, end="")
             sleep(3)
@@ -127,6 +127,7 @@ def decorator(func):
         else:
             print(color_text("DIRECT SSH CONNECTION\n", RGB.RED))
             return func()
+
     return wrapper
 
 
@@ -137,8 +138,20 @@ def print_list():
         print(f"{x :<2}) {color_text(unicode_status, val[7])} {color_text(val[0], RGB.RED)}")
         print(f"      {color_text(val[1], RGB.GREEN)}")
         x += 1
+        # print(united_dict)
     # for key, val in united_dict.items():
     #     print(f"{key:}\n {val}")
+
+
+def print_submenu(choice):
+    y = 1
+    for x in range(3, 7):
+        if not x % 2:
+            print(f"{y :<2})  {color_text(united_dict[choice][x], RGB.RED)}")
+            # t = united_dict[choice][x]
+            y += 1
+        else:
+            print(f"   {color_text(united_dict[choice][x], RGB.GREEN)}")
 
 
 if __name__ == "__main__":
@@ -149,17 +162,24 @@ if __name__ == "__main__":
         try:
             print_list()
             try:
-                inp = input("\nChoose your destiny (any other key to exit):  ")
-                if inp.isdigit():
-                    inp = int(inp)
-                else:
-                    sys.exit('Exit')
+                inp = int(input("\nChoose your destiny (any other key to exit):  "))
             except ValueError:
                 sys.exit("Exit")
 
+            if 1 <= inp <= len(united_dict) and node_option:
+                # print("SUBMENU")
+                print_submenu(inp)
+                try:
+                    inp_sub = int(input("\nChoose desired segment:  "))
+                    if inp_sub > 2:
+                        continue
+                    else:
+                        ssh_connect(inp, inp_sub)
+                except ValueError:
+                    sys.exit("Not a digit")
             if 1 <= inp <= len(united_dict):
                 # ssh_connect(united_dict.get((inp - 1))[0], {united_dict.get((inp - 1))[1]}, {united_dict.get((inp - 1))[2]}, {united_dict.get((inp - 1))[3]})
-                ssh_connect(inp - 1)
+                ssh_connect(inp)
                 # sleep(10)
             else:
                 print("Your choice is out range")
