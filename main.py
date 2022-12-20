@@ -120,15 +120,13 @@ def port_test(address, port):
 
 def decorator(func):
     def wrapper():
+        subprocess.call('clear')
         if node_option:
-            subprocess.call('clear')
             print(color_text("INFO ABOUT NODES\n", RGB.RED))
             return func()
         else:
-            subprocess.call('clear')
             print(color_text("DIRECT SSH CONNECTION\n", RGB.RED))
             return func()
-
     return wrapper
 
 
