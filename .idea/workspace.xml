@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="61131a23-3e24-4278-bb12-dbea5c733fea" name="Changes" comment="&quot;-t&quot; option logic">
+    <list default="true" id="61131a23-3e24-4278-bb12-dbea5c733fea" name="Changes" comment="working decorator">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -323,7 +322,35 @@
       <option name="project" value="LOCAL" />
       <updated>1671210040216</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="working decorator">
+      <created>1671212320705</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1671212320705</updated>
+    </task>
+    <task id="LOCAL-00038" summary="working decorator">
+      <created>1671212416969</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1671212416969</updated>
+    </task>
+    <task id="LOCAL-00039" summary="working decorator">
+      <created>1671212424723</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1671212424723</updated>
+    </task>
+    <task id="LOCAL-00040" summary="working decorator">
+      <created>1671212929449</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1671212929449</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -385,7 +412,8 @@
     <MESSAGE value="argparse" />
     <MESSAGE value="argparse + &quot;-t&quot; option logic" />
     <MESSAGE value="&quot;-t&quot; option logic" />
-    <option name="LAST_COMMIT_MESSAGE" value="&quot;-t&quot; option logic" />
+    <MESSAGE value="working decorator" />
+    <option name="LAST_COMMIT_MESSAGE" value="working decorator" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
