@@ -15,6 +15,7 @@ pattern_port = r'\d{4}'
 unicode_status = "\u25C9"
 united_dict = {}
 node_option = False
+json_out = ""
 
 
 class RGB:
@@ -78,10 +79,10 @@ def parser():
 def ssh_connect(choice, segment=0, complexity=False):
     print(f"\nConnecting to {color_text(united_dict[choice][0:2], RGB.YELLOW)}")
     if segment == 1:
-        print(finder(pattern_ip, united_dict[choice][1]), finder(pattern_port, united_dict[choice][1]), united_dict[choice][3], united_dict[choice][4])
+        print(f" Grabbing info from {finder(pattern_ip, united_dict[choice][1])}, {finder(pattern_port, united_dict[choice][1])}, {united_dict[choice][3]}, {united_dict[choice][4]}")
         segment = 3
     else:
-        print(finder(pattern_ip, united_dict[choice][1]), finder(pattern_port, united_dict[choice][1]), united_dict[choice][5], united_dict[choice][6])
+        print(f" Grabbing info from {finder(pattern_ip, united_dict[choice][1])}, {finder(pattern_port, united_dict[choice][1])}, {united_dict[choice][5]}, {united_dict[choice][6]}")
         segment = 5
     if node_option:
         try:
@@ -98,16 +99,20 @@ def ssh_connect(choice, segment=0, complexity=False):
             jump_host.set_missing_host_key_policy(paramiko.AutoAddPolicy())
             if segment == 3:
                 jump_host.connect(united_dict[choice][4], username="root", password="[eqdjqyt", sock=base_channel)
-                stdin, stdout, stderr = jump_host.exec_command('curl -s http://127.0.0.1:8080/sorm@127.0.0.1/interfaces/1/exec_mgr')
+                stdin, stdout, stderr = jump_host.exec_command("curl -s http://127.0.0.1:8080/sorm@127.0.0.1/interfaces/1/exec_mgr")
             else:
                 jump_host.connect(united_dict[choice][6], username="root", password="[eqdjqyt", sock=base_channel)
-                stdin, stdout, stderr = jump_host.exec_command('curl -s http://127.0.0.1:8080/sormgw@127.0.0.1/interfaces/1/exec_mgr')
+                stdin, stdout, stderr = jump_host.exec_command("curl -s http://127.0.0.1:8080/sormgw@127.0.0.1/interfaces/1/exec_mgr")
             # jump_host.connect("192.168.100.1", username="root", password="[eqdjqyt", sock=base_channel)
             # client.connect("192.168.122.80", port=22, username="user", password="12345")
-            for line in iter(stdout.readline, ""):
-                print(line, end="")
-            # print(stdout.decode())
-            sleep(3)
+            # for line in iter(stdout.readline, ""):
+            #     print(line, end="")
+            # inputt = input("PAUSE")
+            global json_out
+            json_out = stdout.read()
+            # print(json_out)
+            # inputt = input("PAUSE")
+            # sleep(3)
             jump_host.close()
             base_client.close()
         except paramiko.ssh_exception.AuthenticationException as e:
@@ -197,6 +202,10 @@ if __name__ == "__main__":
                         continue
                     else:
                         ssh_connect(inp, inp_sub)
+                        # data = json.loads(json_out)
+                        # data1 = json.dumps(json.loads(data), indent=4, sort_keys=True)
+                        print(json_out)
+                        inputt = input("PAUSE")
                         continue
                 except ValueError:
                     sys.exit("Not a digit")
@@ -209,3 +218,4 @@ if __name__ == "__main__":
                 sleep(1)
         except KeyboardInterrupt:
             pass
+
