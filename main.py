@@ -6,6 +6,7 @@ import sys
 import socket
 import argparse
 import paramiko
+import json
 
 pattern_name = r'\b[A-Z].*(?==)'
 pattern_command = r'\bssh\s.*(?=\")'
@@ -52,34 +53,26 @@ def finder(pat, text):
 
 
 def parser():
-    order = []
-    names = []
-    cmd = []
-    ip_list = []
-    port_list = []
-    port_avail = []
     global united_dict
-    with open('norsi_aliases', 'r') as f:
-        test = f.readlines()
-        i = 0
-        for line in test:
-            if line == "\n":
-                continue
-            else:
-                order.append(i)
-                names.append(finder(pattern_name, line))
-                cmd.append(finder(pattern_command, line))
-                ip_list.append(finder(pattern_ip, line))
-                port_list.append(finder(pattern_port, line))
-                port_avail.append(port_test(finder(pattern_ip, line), finder(pattern_port, line)))
-                i = i + 1
-    f.close()
-    united_dict = {z[0]: list(z[1:]) for z in zip(order, names, cmd, ip_list, port_list, port_avail)}
-    names.clear()
-    cmd.clear()
-    ip_list.clear()
-    port_list.clear()
-    order.clear()
+    _list = []
+    with open("norsi.json", "r") as file:
+        json_data = json.load(file)
+        # # print(type(json_data))
+        # print("\n")
+        counter = 0
+        for item in enumerate(json_data):
+            _list.append(item[1].get("name"))
+            _list.append(item[1].get("command"))
+            _list.append(item[1].get("password"))
+            _list.append(item[1].get("segments")[0].get("name"))
+            _list.append(item[1].get("segments")[0].get("ip"))
+            _list.append(item[1].get("segments")[1].get("name"))
+            _list.append(item[1].get("segments")[1].get("ip"))
+            _list.append(port_test(finder(pattern_ip, item[1].get("command")), finder(pattern_port, item[1].get("command"))))
+            united_dict[counter + 1] = _list
+            # print(united_dict)
+            _list = []
+            counter += 1
 
 
 def ssh_connect(choice):
@@ -135,6 +128,7 @@ def decorator(func):
             subprocess.call('clear')
             print(color_text("DIRECT SSH CONNECTION\n", RGB.RED))
             return func()
+
     return wrapper
 
 
@@ -142,7 +136,7 @@ def decorator(func):
 def print_list():
     x = 1
     for key, val in united_dict.items():
-        print(f"{x :<2}) {color_text(unicode_status, val[4])} {color_text(val[0], RGB.RED)}")
+        print(f"{x :<2}) {color_text(unicode_status, val[7])} {color_text(val[0], RGB.RED)}")
         print(f"      {color_text(val[1], RGB.GREEN)}")
         x += 1
     # for key, val in united_dict.items():
