@@ -77,17 +77,39 @@ def parser():
 
 def ssh_connect(choice, segment=0, complexity=False):
     print(f"\nConnecting to {color_text(united_dict[choice][0:2], RGB.YELLOW)}")
+    if segment == 1:
+        print(finder(pattern_ip, united_dict[choice][1]), finder(pattern_port, united_dict[choice][1]), united_dict[choice][3], united_dict[choice][4])
+        segment = 3
+    else:
+        print(finder(pattern_ip, united_dict[choice][1]), finder(pattern_port, united_dict[choice][1]), united_dict[choice][5], united_dict[choice][6])
+        segment = 5
     if node_option:
         try:
-            print(united_dict[choice][2], united_dict[choice][3])
-            client = paramiko.SSHClient()
-            client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-            client.connect(united_dict[choice][2], port=united_dict[choice][3], username="root", password="[eqdjqyt")
+            base_client = paramiko.SSHClient()
+            base_client .set_missing_host_key_policy(paramiko.AutoAddPolicy())
+            base_client .connect(finder(pattern_ip, united_dict[choice][1]), port=int(finder(pattern_port, united_dict[choice][1])), username="root", password="[eqdjqyt")
+            base_transport = base_client.get_transport()
+            if segment == 3:
+                base_channel = base_transport.open_channel("direct-tcpip", (united_dict[choice][4], 22), (finder(pattern_ip, united_dict[choice][1]), int(finder(pattern_port, united_dict[choice][1]))))
+            else:
+                base_channel = base_transport.open_channel("direct-tcpip", (united_dict[choice][6], 22), (finder(pattern_ip, united_dict[choice][1]), int(finder(pattern_port, united_dict[choice][1]))))
+            # base_channel = base_transport.open_channel("direct-tcpip", ("192.168.100.1", 22), ("192.168.103.250", 22))
+            jump_host = paramiko.SSHClient()
+            jump_host.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+            if segment == 3:
+                jump_host.connect(united_dict[choice][4], username="root", password="[eqdjqyt", sock=base_channel)
+                stdin, stdout, stderr = jump_host.exec_command('curl -s http://127.0.0.1:8080/sorm@127.0.0.1/interfaces/1/exec_mgr')
+            else:
+                jump_host.connect(united_dict[choice][6], username="root", password="[eqdjqyt", sock=base_channel)
+                stdin, stdout, stderr = jump_host.exec_command('curl -s http://127.0.0.1:8080/sormgw@127.0.0.1/interfaces/1/exec_mgr')
+            # jump_host.connect("192.168.100.1", username="root", password="[eqdjqyt", sock=base_channel)
             # client.connect("192.168.122.80", port=22, username="user", password="12345")
-            stdin, stdout, stderr = client.exec_command('hostname -f')
             for line in iter(stdout.readline, ""):
                 print(line, end="")
+            # print(stdout.decode())
             sleep(3)
+            jump_host.close()
+            base_client.close()
         except paramiko.ssh_exception.AuthenticationException as e:
             print(e)
             sleep(2)
@@ -175,6 +197,7 @@ if __name__ == "__main__":
                         continue
                     else:
                         ssh_connect(inp, inp_sub)
+                        continue
                 except ValueError:
                     sys.exit("Not a digit")
             if 1 <= inp <= len(united_dict):
