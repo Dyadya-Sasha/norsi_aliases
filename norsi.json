@@ -202,10 +202,10 @@
           "password": "[eqdjqyt",
           "segments": [
             { "name": "GPRS",
-                "ip": "192.168.100.1"
+                "ip": "192.168.100.5"
             },
             { "name": "BRBD",
-                "ip": "192.168.100.2"
+                "ip": "192.168.100.6"
             }]
         },
          { "name": "MTS-UFO.TSM-CORE (ACCESS TO BMC's)",
