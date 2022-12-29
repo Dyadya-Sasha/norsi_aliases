@@ -123,7 +123,7 @@ def ssh_connect(choice, segment=0, complexity=False):
             subprocess.call(united_dict[choice][1], shell=True)
         except subprocess.CalledProcessError as e:
             print(e.output)
-            sleep(10)
+            sleep(1)
 
 
 def port_test(address, port):
