@@ -78,13 +78,13 @@ def parser():
 
 def ssh_connect(choice, segment=0, complexity=False):
     print(f"\nConnecting to {color_text(united_dict[choice][0:2], RGB.YELLOW)}")
-    if segment == 1:
-        print(f" Grabbing info from {finder(pattern_ip, united_dict[choice][1])}, {finder(pattern_port, united_dict[choice][1])}, {united_dict[choice][3]}, {united_dict[choice][4]}")
-        segment = 3
-    else:
-        print(f" Grabbing info from {finder(pattern_ip, united_dict[choice][1])}, {finder(pattern_port, united_dict[choice][1])}, {united_dict[choice][5]}, {united_dict[choice][6]}")
-        segment = 5
     if node_option:
+        if segment == 1:
+            print(f" Grabbing info from {finder(pattern_ip, united_dict[choice][1])}, {finder(pattern_port, united_dict[choice][1])}, {united_dict[choice][3]}, {united_dict[choice][4]}")
+            segment = 3
+        else:
+            print(f" Grabbing info from {finder(pattern_ip, united_dict[choice][1])}, {finder(pattern_port, united_dict[choice][1])}, {united_dict[choice][5]}, {united_dict[choice][6]}")
+            segment = 5
         try:
             base_client = paramiko.SSHClient()
             base_client .set_missing_host_key_policy(paramiko.AutoAddPolicy())
@@ -123,7 +123,7 @@ def ssh_connect(choice, segment=0, complexity=False):
             subprocess.call(united_dict[choice][1], shell=True)
         except subprocess.CalledProcessError as e:
             print(e.output)
-            sleep(0.8)
+            sleep(10)
 
 
 def port_test(address, port):

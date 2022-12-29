@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="61131a23-3e24-4278-bb12-dbea5c733fea" name="Changes" comment="working decorator">
+    <list default="true" id="61131a23-3e24-4278-bb12-dbea5c733fea" name="Changes" comment="Edited norsi.json">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,13 +70,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1664942764082</updated>
-    </task>
-    <task id="LOCAL-00001" summary="The first test">
-      <created>1667561754095</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1667561754095</updated>
     </task>
     <task id="LOCAL-00002" summary="The first test">
       <created>1667572406920</created>
@@ -350,7 +344,77 @@
       <option name="project" value="LOCAL" />
       <updated>1671212929449</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="gitignore">
+      <created>1671521693121</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1671521693121</updated>
+    </task>
+    <task id="LOCAL-00042" summary="gitignore">
+      <created>1671521731644</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1671521731644</updated>
+    </task>
+    <task id="LOCAL-00043" summary="gitignore">
+      <created>1671521786083</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1671521786083</updated>
+    </task>
+    <task id="LOCAL-00044" summary="json parser upgraded">
+      <created>1671527792659</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1671527792659</updated>
+    </task>
+    <task id="LOCAL-00045" summary="json parser upgraded">
+      <created>1671529943012</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1671529943012</updated>
+    </task>
+    <task id="LOCAL-00046" summary="SUBMENU">
+      <created>1671544878150</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1671544878150</updated>
+    </task>
+    <task id="LOCAL-00047" summary="The first working attempt with nodes info">
+      <created>1671549185159</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1671549185159</updated>
+    </task>
+    <task id="LOCAL-00048" summary="for some reason parsing from json into readable form doesnt work...">
+      <created>1671553897707</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1671553897707</updated>
+    </task>
+    <task id="LOCAL-00049" summary="changed visibility">
+      <created>1671555761998</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1671555761998</updated>
+    </task>
+    <task id="LOCAL-00050" summary="Edited norsi.json">
+      <created>1672053272049</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1672053272049</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -392,9 +456,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="The first test" />
-    <MESSAGE value="Not hiding menu" />
-    <MESSAGE value="added pattern for IP and port" />
     <MESSAGE value="Improved enumerating" />
     <MESSAGE value="Enumerator added" />
     <MESSAGE value="Status checker _ THE BEGINNING" />
@@ -413,7 +474,14 @@
     <MESSAGE value="argparse + &quot;-t&quot; option logic" />
     <MESSAGE value="&quot;-t&quot; option logic" />
     <MESSAGE value="working decorator" />
-    <option name="LAST_COMMIT_MESSAGE" value="working decorator" />
+    <MESSAGE value="gitignore" />
+    <MESSAGE value="json parser upgraded" />
+    <MESSAGE value="SUBMENU" />
+    <MESSAGE value="The first working attempt with nodes info" />
+    <MESSAGE value="for some reason parsing from json into readable form doesnt work..." />
+    <MESSAGE value="changed visibility" />
+    <MESSAGE value="Edited norsi.json" />
+    <option name="LAST_COMMIT_MESSAGE" value="Edited norsi.json" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
