@@ -1,0 +1,288 @@
+[
+        { "name": "VM-LOCAL-REPO",
+          "command": "ssh root@192.168.103.250 -p 3578",
+          "password": "[eqdjqyt",
+          "segments": [
+            { "name": "GPRS",
+                "ip": "192.168.100.1"
+            },
+            { "name": "BRBD",
+                "ip": "192.168.100.2"
+            }]
+          },
+        { "name": "TSM-CORE-1",
+          "command": "ssh root@192.168.103.250 -p 3598",
+          "password": "[eqdjqyt",
+          "segments": [
+            { "name": "GPRS",
+                "ip": "192.168.100.1"
+            },
+            { "name": "BRBD",
+                "ip": "192.168.100.2"
+            }]
+          },
+        { "name": "VOICE_SPB",
+          "command": "ssh root@192.168.103.250 -p 3598  -t ssh root@10.254.10.238",
+          "password": "[eqdjqyt",
+          "segments": [
+            { "name": "GPRS",
+                "ip": "192.168.100.1"
+            },
+            { "name": "BRBD",
+                "ip": "192.168.100.2"
+            }]
+        },
+        { "name": "VOICE_MSK",
+          "command": "ssh root@192.168.103.250 -p 3598  -t ssh root@10.233.31.134",
+          "password": "[eqdjqyt",
+          "segments": [
+            { "name": "GPRS",
+                "ip": "192.168.100.1"
+            },
+            { "name": "BRBD",
+                "ip": "192.168.100.2"
+            }]
+        },
+        { "name": "VOICE_MSK_BALANCER",
+          "command": "ssh root@192.168.103.250 -p 3598  -t ssh root@10.254.10.241",
+          "password": "[eqdjqyt",
+          "segments": [
+            { "name": "GPRS",
+                "ip": "192.168.100.1"
+            },
+            { "name": "BRBD",
+                "ip": "192.168.100.2"
+            }]
+        },
+        { "name": "VOICE_MSK_TRANSCODER",
+          "command": "ssh root@192.168.103.250 -p 3598  -t ssh root@10.254.10.176",
+          "password": "[eqdjqyt",
+          "segments": [
+            { "name": "GPRS",
+                "ip": "192.168.100.1"
+            },
+            { "name": "BRBD",
+                "ip": "192.168.100.2"
+            }]
+        },
+        { "name": "SPRS-COMPRESSOR-CONTENT",
+          "command": "ssh root@192.168.103.250 -p 3598  -t ssh root@10.253.101.2",
+          "password": "[eqdjqyt",
+          "segments": [
+            { "name": "GPRS",
+                "ip": "192.168.100.1"
+            },
+            { "name": "BRBD",
+                "ip": "192.168.100.2"
+            }]
+        },
+        { "name": "COMPRESSOR-CONTENT06",
+          "command": "ssh root@192.168.103.250 -p 3598  -t ssh root@10.254.10.252",
+          "password": "[eqdjqyt",
+          "segments": [
+            { "name": "GPRS",
+                "ip": "192.168.100.1"
+            },
+            { "name": "BRBD",
+                "ip": "192.168.100.2"
+            }]
+        },
+        { "name": "SORMGW-TRANSCODER-PSTN-SPB",
+          "command": "ssh root@192.168.103.250 -p 3598  -t ssh root@10.254.10.252 -t ssh root@10.254.10.184",
+          "password": "[eqdjqyt",
+          "segments": [
+            { "name": "GPRS",
+                "ip": "192.168.100.1"
+            },
+            { "name": "BRBD",
+                "ip": "192.168.100.2"
+            }]
+        },
+        { "name": "SORMGW-TRANSCODER-PSTN",
+          "command": "ssh root@192.168.103.250 -p 3598  -t ssh root@10.254.10.252 -t ssh root@11.127.36.65",
+          "password": "[eqdjqyt",
+          "segments": [
+            { "name": "GPRS",
+                "ip": "192.168.100.1"
+            },
+            { "name": "BRBD",
+                "ip": "192.168.100.2"
+            }]
+        },
+        { "name": "TSM-CORE-86",
+          "command": "ssh root@192.168.103.250 -p 3589",
+          "password": "[eqdjqyt",
+          "segments": [
+            { "name": "GPRS",
+                "ip": "192.168.100.1"
+            },
+            { "name": "BRBD",
+                "ip": "192.168.100.2"
+            }]
+        },
+        { "name": "TSM-CORE01.PTRS.NNOVGOROD.MGTS",
+          "command": "ssh root@192.168.103.250 -p 3589  -t ssh mgr@10.34.13.237",
+          "password": "[eqdjqyt",
+          "segments": [
+            { "name": "GPRS",
+                "ip": "192.168.100.1"
+            },
+            { "name": "BRBD",
+                "ip": "192.168.100.2"
+            }]
+        },
+        { "name": "TSM-CORE-SPB-86",
+          "command": "ssh root@192.168.103.250 -p 3585",
+          "password": "[eqdjqyt",
+          "segments": [
+            { "name": "GPRS",
+                "ip": "192.168.100.1"
+            },
+            { "name": "BRBD",
+                "ip": "192.168.100.2"
+            }]
+        },
+         { "name": "SORMGW-GSM-GPRS-KOMI",
+          "command": "ssh root@192.168.103.250 -p 3585  -t ssh root@10.36.11.103",
+          "password": "[eqdjqyt",
+          "segments": [
+            { "name": "GPRS",
+                "ip": "192.168.100.1"
+            },
+            { "name": "BRBD",
+                "ip": "192.168.100.2"
+            }]
+        },
+         { "name": "SORMGW-GPRS-DV",
+          "command": "ssh root@192.168.103.250 -p 3577",
+          "password": "[eqdjqyt",
+          "segments": [
+            { "name": "GPRS",
+                "ip": "192.168.100.1"
+            },
+            { "name": "BRBD",
+                "ip": "192.168.100.2"
+            }]
+        },
+         { "name": "SORMGW-GPRS-PFO",
+          "command": "ssh root@192.168.103.250 -p 3591",
+          "password": "[eqdjqyt",
+          "segments": [
+            { "name": "GPRS",
+                "ip": "192.168.100.1"
+            },
+            { "name": "BRBD",
+                "ip": "192.168.100.2"
+            }]
+        },
+         { "name": "SORMGW-GPRS-SZFO",
+          "command": "ssh root@192.168.103.250 -p 3592",
+          "password":"[eqdjqyt",
+          "segments": [
+            { "name": "GPRS",
+                "ip": "192.168.100.1"
+            },
+            { "name": "BRBD",
+                "ip": "192.168.100.2"
+            }]
+        },
+         { "name": "SORMGW-GPRS-CFO",
+          "command": "ssh root@192.168.103.250 -p 3593",
+          "password": "[eqdjqyt",
+          "segments": [
+            { "name": "GPRS",
+                "ip": "192.168.100.1"
+            },
+            { "name": "BRBD",
+                "ip": "192.168.100.2"
+            }]
+        },
+         { "name": "SORMGW-GPRS-UFO",
+          "command": "ssh root@192.168.103.250 -p 3594",
+          "password": "[eqdjqyt",
+          "segments": [
+            { "name": "GPRS",
+                "ip": "192.168.100.5"
+            },
+            { "name": "BRBD",
+                "ip": "192.168.100.6"
+            }]
+        },
+         { "name": "MTS-UFO.TSM-CORE (ACCESS TO BMC's)",
+          "command": "ssh root@192.168.103.250 -p 3594 -t ssh 192.168.100.11",
+          "password": "[eqdjqyt",
+          "segments": [
+            { "name": "GPRS",
+                "ip": "192.168.100.1"
+            },
+            { "name": "BRBD",
+                "ip": "192.168.100.2"
+            }]
+        },
+         { "name": "VOICE_URAL",
+          "command": "ssh root@192.168.103.250 -p 3594  -t ssh root@10.99.10.1",
+          "password": "[eqdjqyt",
+          "segments": [
+            { "name": "GPRS",
+                "ip": "192.168.100.1"
+            },
+            { "name": "BRBD",
+                "ip": "192.168.100.2"
+            }]
+        },
+         { "name": "SORMGW-GPRS-URAL",
+          "command": "ssh root@192.168.103.250 -p 3599",
+          "password": "[eqdjqyt",
+          "segments": [
+            { "name": "GPRS",
+                "ip": "192.168.100.1"
+            },
+            { "name": "BRBD",
+                "ip": "192.168.100.2"
+            }]
+        },
+         { "name": "T045_TSMCORE",
+          "command": "ssh root@192.168.103.250 -p 3691",
+          "password": "[eqdjqyt",
+          "segments": [
+            { "name": "GPRS",
+                "ip": "192.168.100.1"
+            },
+            { "name": "BRBD",
+                "ip": "192.168.100.2"
+            }]
+        },
+         { "name": "TSM-CORE01.PTRS.COMBINED",
+          "command": "ssh root@192.168.103.250 -p 3691  -t ssh mgr@192.100.101.39",
+          "password": "[eqdjqyt",
+          "segments": [
+            { "name": "GPRS",
+                "ip": "192.168.100.1"
+            },
+            { "name": "BRBD",
+                "ip": "192.168.100.2"
+            }]
+        },
+         { "name": "TSM-CORE01.PSTN.COMBINED",
+          "command": "ssh root@192.168.100.55  -p 3691  -t ssh mgr@192.100.101.39",
+          "password": "[eqdjqyt",
+          "segments": [
+            { "name": "GPRS",
+                "ip": "192.168.100.1"
+            },
+            { "name": "BRBD",
+                "ip": "192.168.100.2"
+            }]
+        },
+         { "name": "ROSTOV_86{573}",
+          "command": "ssh root@213.27.36.198   -p 3578",
+          "password": "[eqdjqyt",
+          "segments": [
+            { "name": "GPRS",
+                "ip": "192.168.100.1"
+            },
+            { "name": "BRBD",
+                "ip": "192.168.100.2"
+            }]
+        }
+]
