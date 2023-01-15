@@ -116,7 +116,7 @@ def ssh_connect(choice, segment=0, complexity=False):
             test_dict = json.loads(json_out)
             print_json(data=test_dict, sort_keys=True)
             # print(json.dumps(test_dict, indent=4, sort_keys=True))
-            plug = input("PAUSE")
+            input("PAUSE")
             # mid_result = subprocess.run("jq", input=json_out, capture_output=True)
             # subprocess.run(["less", "-R"], input=mid_result.stdout, check=True)
             jump_host.close()
