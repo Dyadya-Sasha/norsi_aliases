@@ -8,6 +8,9 @@ import argparse
 import paramiko
 import json
 
+
+
+
 pattern_name = r'\b[A-Z].*(?==)'
 pattern_command = r'\bssh\s.*(?=\")'
 pattern_ip = r'[\d]{,3}(?:[.][\d]{,3}){3}'
@@ -109,23 +112,19 @@ def ssh_connect(choice, segment=0, complexity=False):
             # inputt = input("PAUSE")
             global json_out
             json_out = stdout.read()
-            with open("output", "w") as f:
-                context = json_out.decode()
-                f.write(context)
-
-            with open("output", "r") as f:
-                mid_result = subprocess.run("jq", stdin=f, capture_output=True, check=True)
-                subprocess.run("less", input=mid_result.stdout)
-            #
-            # stdout_sub = print_result.stdout.decode()
-            # print(stdout_sub)
-            # inputt = input("PAUSE")
-            # sleep(3)
+            test_dict = json.loads(json_out)
+            print(json.dumps(test_dict, indent=4, sort_keys=True))
+            plug = input("PAUSE")
+            # mid_result = subprocess.run("jq", input=json_out, capture_output=True)
+            # subprocess.run(["less", "-R"], input=mid_result.stdout, check=True)
             jump_host.close()
             base_client.close()
         except paramiko.ssh_exception.AuthenticationException as e:
             print(e)
-            sleep(5)
+            sleep(2)
+        except paramiko.ssh_exception.SSHException as e:
+            print(e)
+            sleep(2)
         finally:
             return
     else:
@@ -133,7 +132,7 @@ def ssh_connect(choice, segment=0, complexity=False):
             subprocess.call(united_dict[choice][1], shell=True)
         except subprocess.CalledProcessError as e:
             print(e.output)
-            sleep(5)
+            sleep(2)
         finally:
             return
 
