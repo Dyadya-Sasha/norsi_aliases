@@ -125,13 +125,17 @@ def ssh_connect(choice, segment=0, complexity=False):
             base_client.close()
         except paramiko.ssh_exception.AuthenticationException as e:
             print(e)
-            sleep(2)
+            sleep(5)
+        finally:
+            return
     else:
         try:
             subprocess.call(united_dict[choice][1], shell=True)
         except subprocess.CalledProcessError as e:
             print(e.output)
-            sleep(1)
+            sleep(5)
+        finally:
+            return
 
 
 def port_test(address, port):
