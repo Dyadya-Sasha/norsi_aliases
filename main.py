@@ -7,6 +7,7 @@ import socket
 import argparse
 import paramiko
 import json
+from rich import print_json
 
 
 
@@ -113,7 +114,8 @@ def ssh_connect(choice, segment=0, complexity=False):
             global json_out
             json_out = stdout.read()
             test_dict = json.loads(json_out)
-            print(json.dumps(test_dict, indent=4, sort_keys=True))
+            print_json(data=test_dict, sort_keys=True)
+            # print(json.dumps(test_dict, indent=4, sort_keys=True))
             plug = input("PAUSE")
             # mid_result = subprocess.run("jq", input=json_out, capture_output=True)
             # subprocess.run(["less", "-R"], input=mid_result.stdout, check=True)
