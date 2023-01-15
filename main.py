@@ -7,6 +7,10 @@ import socket
 import argparse
 import paramiko
 import json
+from rich import print_json
+
+
+
 
 pattern_name = r'\b[A-Z].*(?==)'
 pattern_command = r'\bssh\s.*(?=\")'
@@ -79,16 +83,15 @@ def parser():
 def ssh_connect(choice, segment=0, complexity=False):
     print(f"\nConnecting to {color_text(united_dict[choice][0:2], RGB.YELLOW)}")
     if node_option:
+        print(f" Grabbing info from {finder(pattern_ip, united_dict[choice][1])}, {finder(pattern_port, united_dict[choice][1])}, {united_dict[choice][3]}, {united_dict[choice][4]}")
         if segment == 1:
-            print(f" Grabbing info from {finder(pattern_ip, united_dict[choice][1])}, {finder(pattern_port, united_dict[choice][1])}, {united_dict[choice][3]}, {united_dict[choice][4]}")
             segment = 3
         else:
-            print(f" Grabbing info from {finder(pattern_ip, united_dict[choice][1])}, {finder(pattern_port, united_dict[choice][1])}, {united_dict[choice][5]}, {united_dict[choice][6]}")
             segment = 5
         try:
             base_client = paramiko.SSHClient()
-            base_client .set_missing_host_key_policy(paramiko.AutoAddPolicy())
-            base_client .connect(finder(pattern_ip, united_dict[choice][1]), port=int(finder(pattern_port, united_dict[choice][1])), username="root", password="[eqdjqyt")
+            base_client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+            base_client.connect(finder(pattern_ip, united_dict[choice][1]), port=int(finder(pattern_port, united_dict[choice][1])), username="root", password="[eqdjqyt")
             base_transport = base_client.get_transport()
             if segment == 3:
                 base_channel = base_transport.open_channel("direct-tcpip", (united_dict[choice][4], 22), (finder(pattern_ip, united_dict[choice][1]), int(finder(pattern_port, united_dict[choice][1]))))
@@ -110,20 +113,30 @@ def ssh_connect(choice, segment=0, complexity=False):
             # inputt = input("PAUSE")
             global json_out
             json_out = stdout.read()
-            # print(json_out)
-            # inputt = input("PAUSE")
-            # sleep(3)
+            test_dict = json.loads(json_out)
+            print_json(data=test_dict, sort_keys=True)
+            # print(json.dumps(test_dict, indent=4, sort_keys=True))
+            input("PAUSE")
+            # mid_result = subprocess.run("jq", input=json_out, capture_output=True)
+            # subprocess.run(["less", "-R"], input=mid_result.stdout, check=True)
             jump_host.close()
             base_client.close()
         except paramiko.ssh_exception.AuthenticationException as e:
             print(e)
             sleep(2)
+        except paramiko.ssh_exception.SSHException as e:
+            print(e)
+            sleep(2)
+        finally:
+            return
     else:
         try:
             subprocess.call(united_dict[choice][1], shell=True)
         except subprocess.CalledProcessError as e:
             print(e.output)
-            sleep(1)
+            sleep(2)
+        finally:
+            return
 
 
 def port_test(address, port):
@@ -204,8 +217,8 @@ if __name__ == "__main__":
                         ssh_connect(inp, inp_sub)
                         # data = json.loads(json_out)
                         # data1 = json.dumps(json.loads(data), indent=4, sort_keys=True)
-                        print(json_out)
-                        inputt = input("PAUSE")
+                        # print(json_out)
+                        # plug = input("PAUSE")
                         continue
                 except ValueError:
                     sys.exit("Not a digit")
@@ -218,4 +231,3 @@ if __name__ == "__main__":
                 sleep(1)
         except KeyboardInterrupt:
             pass
-

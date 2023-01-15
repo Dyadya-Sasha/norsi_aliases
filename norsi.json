@@ -153,7 +153,7 @@
                 "ip": "192.168.100.2"
             }]
         },
-         { "name": "SORMGW-GPRS-DV",
+         { "name": "SORMGW-DV",
           "command": "ssh root@192.168.103.250 -p 3577",
           "password": "[eqdjqyt",
           "segments": [
@@ -164,7 +164,7 @@
                 "ip": "192.168.100.2"
             }]
         },
-         { "name": "SORMGW-GPRS-PFO",
+         { "name": "SORMGW-PFO",
           "command": "ssh root@192.168.103.250 -p 3591",
           "password": "[eqdjqyt",
           "segments": [
@@ -175,7 +175,7 @@
                 "ip": "192.168.100.2"
             }]
         },
-         { "name": "SORMGW-GPRS-SZFO",
+         { "name": "SORMGW-SZFO",
           "command": "ssh root@192.168.103.250 -p 3592",
           "password":"[eqdjqyt",
           "segments": [
@@ -186,7 +186,7 @@
                 "ip": "192.168.100.2"
             }]
         },
-         { "name": "SORMGW-GPRS-CFO",
+         { "name": "SORMGW-CFO",
           "command": "ssh root@192.168.103.250 -p 3593",
           "password": "[eqdjqyt",
           "segments": [
@@ -197,7 +197,7 @@
                 "ip": "192.168.100.2"
             }]
         },
-         { "name": "SORMGW-GPRS-UFO",
+         { "name": "SORMGW-UFO",
           "command": "ssh root@192.168.103.250 -p 3594",
           "password": "[eqdjqyt",
           "segments": [
@@ -230,7 +230,7 @@
                 "ip": "192.168.100.2"
             }]
         },
-         { "name": "SORMGW-GPRS-URAL",
+         { "name": "SORMGW-URAL",
           "command": "ssh root@192.168.103.250 -p 3599",
           "password": "[eqdjqyt",
           "segments": [
