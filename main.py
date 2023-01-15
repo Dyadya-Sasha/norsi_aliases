@@ -115,7 +115,7 @@ def ssh_connect(choice, segment=0, complexity=False):
 
             with open("output", "r") as f:
                 mid_result = subprocess.run("jq", stdin=f, capture_output=True, check=True)
-                fin_result = subprocess.run("less", input=mid_result.stdout)
+                subprocess.run("less", input=mid_result.stdout)
             #
             # stdout_sub = print_result.stdout.decode()
             # print(stdout_sub)
