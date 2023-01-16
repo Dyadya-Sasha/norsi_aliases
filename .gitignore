@@ -1,5 +1,5 @@
 #IGNORE ALIASES FILE
 norsi_aliases
-/.idea/workspace.xml
+.idea/
 output
 venv/
