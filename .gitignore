@@ -2,3 +2,4 @@
 norsi_aliases
 /.idea/workspace.xml
 output
+venv/
