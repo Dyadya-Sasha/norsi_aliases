@@ -214,7 +214,7 @@ if __name__ == "__main__":
                 try:
                     inp_sub = int(input("\nChoose desired segment:  "))
                     if inp_sub > 2:
-                        print("Out of limits. Restart")
+                        print("Out of bond")
                         sleep(2)
                         continue
                     else:
