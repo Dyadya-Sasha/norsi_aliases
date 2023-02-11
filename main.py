@@ -9,9 +9,6 @@ import paramiko
 import json
 from rich import print_json
 
-
-
-
 pattern_name = r'\b[A-Z].*(?==)'
 pattern_command = r'\bssh\s.*(?=\")'
 pattern_ip = r'[\d]{,3}(?:[.][\d]{,3}){3}'
