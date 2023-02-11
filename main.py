@@ -186,6 +186,10 @@ def print_list():
 def print_submenu(choice):
     y = 1
     for x in range(3, 7):
+        if united_dict[choice][x] == '0':
+            print(color_text("No additional segments here", RGB.RED))
+            sleep(2)
+            return 1
         if not x % 2:
             print(f"{y :<2})  {color_text(united_dict[choice][x], RGB.RED)}")
             # t = united_dict[choice][x]
@@ -208,10 +212,13 @@ if __name__ == "__main__":
 
             if 1 <= inp <= len(united_dict) and node_option:
                 # print("SUBMENU")
-                print_submenu(inp)
+                if print_submenu(inp) == 1:
+                    continue
                 try:
                     inp_sub = int(input("\nChoose desired segment:  "))
                     if inp_sub > 2:
+                        print("Out of limits. Restart")
+                        sleep(2)
                         continue
                     else:
                         ssh_connect(inp, inp_sub)
@@ -221,7 +228,7 @@ if __name__ == "__main__":
                         # plug = input("PAUSE")
                         continue
                 except ValueError:
-                    sys.exit("Not a digit")
+                    continue
             if 1 <= inp <= len(united_dict):
                 # ssh_connect(united_dict.get((inp - 1))[0], {united_dict.get((inp - 1))[1]}, {united_dict.get((inp - 1))[2]}, {united_dict.get((inp - 1))[3]})
                 ssh_connect(inp)
