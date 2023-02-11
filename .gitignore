@@ -1,5 +1,6 @@
 #IGNORE ALIASES FILE
 norsi_aliases
+norsi.json
 .idea/
 output
 venv/
