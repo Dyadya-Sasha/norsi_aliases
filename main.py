@@ -80,11 +80,12 @@ def parser():
 def ssh_connect(choice, segment=0, complexity=False):
     print(f"\nConnecting to {color_text(united_dict[choice][0:2], RGB.YELLOW)}")
     if node_option:
-        print(f" Grabbing info from {finder(pattern_ip, united_dict[choice][1])}, {finder(pattern_port, united_dict[choice][1])}, {united_dict[choice][3]}, {united_dict[choice][4]}")
         if segment == 1:
             segment = 3
         else:
             segment = 5
+        print(f" Grabbing info from {finder(pattern_ip, united_dict[choice][1])}, {finder(pattern_port, united_dict[choice][1])}, {united_dict[choice][segment]}, {united_dict[choice][segment + 1]}")
+
         try:
             base_client = paramiko.SSHClient()
             base_client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
@@ -200,6 +201,7 @@ if __name__ == "__main__":
     os.chdir(sys.path[0])
     while True:
         parser()
+        print(united_dict)
         try:
             print_list()
             try:
@@ -213,8 +215,8 @@ if __name__ == "__main__":
                     continue
                 try:
                     inp_sub = int(input("\nChoose desired segment:  "))
-                    if inp_sub > 2:
-                        print("Out of bond")
+                    if not 1 <= inp_sub <= 2:
+                        print(color_text("Out of bond", RGB.RED))
                         sleep(2)
                         continue
                     else:
