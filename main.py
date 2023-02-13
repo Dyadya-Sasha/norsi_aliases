@@ -201,7 +201,7 @@ if __name__ == "__main__":
     os.chdir(sys.path[0])
     while True:
         parser()
-        print(united_dict)
+        # print(united_dict)
         try:
             print_list()
             try:
